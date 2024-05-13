@@ -1,11 +1,11 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import Navbar from "../../Components/Navbar/Navbar";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Navbar from '../../Components/Navbar/Navbar';
 
 function Faq() {
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <div>
         <h2>Frequently Asked Questions</h2>
       </div>

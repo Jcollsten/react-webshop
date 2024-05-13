@@ -1,15 +1,15 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import ProductCard from "../../Components/ProductList/ProductList";
-import Navbar from "../../Components/Navbar/Navbar";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import ProductList from '../../Components/ProductList/ProductList';
+import Navbar from '../../Components/Navbar/Navbar';
 
 function Shop() {
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <div>
         <h2>SHOP</h2>
-        <ProductCard />
+        <ProductList />
       </div>
       {/* <div>
         <Link to="/">Home</Link>

@@ -1,11 +1,11 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import Navbar from "../../Components/Navbar/Navbar";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Navbar from '../../Components/Navbar/Navbar';
 
 function About() {
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <div>
         <h2>ABOUT US</h2>
       </div>
