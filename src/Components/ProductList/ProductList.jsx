@@ -1,19 +1,9 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import './ProductList.css';
 import { ShopContext } from '../../context/ShopContext';
 
 function ProductList() {
-  const [products, setProducts] = useState([]);
-  const { addToCart, cartItems } = useContext(ShopContext);
-
-  useEffect(() => {
-    fetch('https://dummyjson.com/products?limit=10&skip=0')
-      .then((res) => res.json())
-      .then((json) => {
-        console.log('Fetched data:', json);
-        setProducts(json.products);
-      });
-  }, []);
+  const { products, addToCart, cartItems } = useContext(ShopContext);
 
   return (
     <div className='flex bg-slate-600 justify-center items-center'>
