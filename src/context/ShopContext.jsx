@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect } from "react";
 
 export const ShopContext = createContext(null);
 
@@ -7,10 +7,10 @@ export const ShopContextProvider = (props) => {
   const [products, setProducts] = useState([]);
   // const ItemsInCart = [];
   useEffect(() => {
-    fetch('https://dummyjson.com/products?limit=10&skip=0')
+    fetch("https://dummyjson.com/products?limit=10&skip=0")
       .then((res) => res.json())
       .then((json) => {
-        console.log('Fetched data:', json);
+        console.log("Fetched data:", json);
         setProducts(json.products);
       });
   }, []);
@@ -56,5 +56,9 @@ export const ShopContextProvider = (props) => {
 
   console.log(cartItems);
 
-  return <ShopContext.Provider value={contextValue}>{props.children}</ShopContext.Provider>;
+  return (
+    <ShopContext.Provider value={contextValue}>
+      {props.children}
+    </ShopContext.Provider>
+  );
 };
