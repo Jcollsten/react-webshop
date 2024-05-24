@@ -1,25 +1,20 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect } from 'react';
 
 export const ShopContext = createContext(null);
 
 export const ShopContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
   const [products, setProducts] = useState([]);
+  const [customerInfo, setCustomerInfo] = useState(null);
   // const ItemsInCart = [];
   useEffect(() => {
-    fetch("https://dummyjson.com/products?limit=10&skip=0")
+    fetch('https://dummyjson.com/products?limit=0&skip=0')
       .then((res) => res.json())
       .then((json) => {
-        console.log("Fetched data:", json);
+        console.log('Fetched data:', json);
         setProducts(json.products);
       });
   }, []);
-
-  // Related to LocalStorage, perhaps useful later?
-  // function getSavedCartItems() {
-  //   const savedCartItems = localStorage.getItem('cartItems');
-  //   return savedCartItems ? JSON.parse(savedCartItems) : {};
-  // }
 
   function addToCart(itemId) {
     setCartItems((prev) => ({ ...prev, [itemId]: (prev[itemId] || 0) + 1 }));
@@ -50,15 +45,12 @@ export const ShopContextProvider = (props) => {
     addToCart,
     removeFromCart,
     deleteFromCart,
-    // getSavedCartItems, (export of the localStorage data, perhaps useful later?)
     products, // Include products in the context value
+    customerInfo,
+    setCustomerInfo,
   };
 
   console.log(cartItems);
 
-  return (
-    <ShopContext.Provider value={contextValue}>
-      {props.children}
-    </ShopContext.Provider>
-  );
+  return <ShopContext.Provider value={contextValue}>{props.children}</ShopContext.Provider>;
 };

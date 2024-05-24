@@ -4,7 +4,7 @@ import Navbar from '../../Components/Navbar/Navbar';
 
 function Faq() {
   return (
-    <div>
+    <div className='bg-gray-100 pb-20'>
       {/* <Navbar /> */}
       <div>
         <h2>Frequently Asked Questions</h2>
