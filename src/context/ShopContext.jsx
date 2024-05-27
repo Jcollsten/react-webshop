@@ -6,15 +6,21 @@ export const ShopContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
   const [products, setProducts] = useState([]);
   const [customerInfo, setCustomerInfo] = useState(null);
+  const [category, setCategory] = useState('');
+  // 'https://dummyjson.com/products'
+  // https://dummyjson.com/products/category/smartphones'
+
   // const ItemsInCart = [];
   useEffect(() => {
-    fetch('https://dummyjson.com/products?limit=0&skip=0')
+    const Url = category ? `https://dummyjson.com/products/category/${category}` : 'https://dummyjson.com/products?limit=0';
+
+    fetch(Url)
       .then((res) => res.json())
       .then((json) => {
         console.log('Fetched data:', json);
         setProducts(json.products);
       });
-  }, []);
+  }, [category]);
 
   function addToCart(itemId) {
     setCartItems((prev) => ({ ...prev, [itemId]: (prev[itemId] || 0) + 1 }));
@@ -48,6 +54,7 @@ export const ShopContextProvider = (props) => {
     products, // Include products in the context value
     customerInfo,
     setCustomerInfo,
+    setCategory,
   };
 
   console.log(cartItems);

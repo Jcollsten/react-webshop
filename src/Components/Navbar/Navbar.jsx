@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 
 function Navbar() {
   return (
-    <div className='bg-gray-800 text-white py-4 sticky top-0 z-10'>
+    <div className='bg-gray-800 text-white text-2xl py-4 sticky top-0 z-10'>
       <nav className='flex justify-between items-center max-w-7xl mx-auto py-4 px-8'>
         <div>
           <Link to='/'>
-            <p className='text-xl font-bold'>NJSC</p>
+            <p className='text-2xl font-bold'>NJSC</p>
           </Link>
         </div>
         <div className='flex'>

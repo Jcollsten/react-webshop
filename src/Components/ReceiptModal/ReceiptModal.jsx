@@ -5,6 +5,9 @@ import { Link } from 'react-router-dom';
 
 export default function ReceiptModal({ isOpen, onClose, cartProducts, customerInfo, cartItems }) {
   if (!isOpen) return null;
+  const totalPrice = cartProducts.reduce((sum, product) => {
+    return sum + (product.stock <= 50 ? Math.floor(product.price * (1 - Math.ceil(product.discountPercentage) / 100)) : product.price) * cartItems[product.id];
+  }, 0);
   return (
     <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 backdrop-filter backdrop-blur-md '>
       <div className='bg-white p-6 rounded shadow-lg max-w-[30%] w-full border-l-4 border-gray-700 '>
@@ -25,7 +28,7 @@ export default function ReceiptModal({ isOpen, onClose, cartProducts, customerIn
             >
               <div className='w-[33%]'>{product.title}</div>
               <div className='w-[33%]'>{cartItems[product.id]}</div>
-              <div className='w-[33%]'>${product.price * cartItems[product.id]}</div>
+              <div className='w-[33%]'>${product.stock <= 50 ? Math.floor(product.price * (1 - Math.ceil(product.discountPercentage) / 100)) * cartItems[product.id] : product.price * cartItems[product.id]}</div>
             </div>
           ))}
           <hr className='border-gray-900 mt-4'></hr>
@@ -33,7 +36,7 @@ export default function ReceiptModal({ isOpen, onClose, cartProducts, customerIn
         <div className='flex justify-end w-[70%] font-semibold'>
           <div className='flex text-l gap-4'>
             <div>Total cost: </div>
-            <div className='mb-5 mr-5 '>${cartProducts.reduce((sum, product) => sum + product.price * cartItems[product.id], 0)}</div>
+            <div className='mb-5 mr-5'>${totalPrice}</div>
           </div>
         </div>
         <h2 className='text-xl font-bold mb-4 mt-10'>Delivery & Billing information</h2>

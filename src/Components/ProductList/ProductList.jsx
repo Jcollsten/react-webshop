@@ -14,10 +14,12 @@ function ProductList() {
         {products.map((product) => {
           const ItemsInCart = cartItems[product.id] || 0; // set it to 0 if no value is found
           const roundedDiscount = Math.ceil(product.discountPercentage);
-          const discountedPrice = product.stock <= 50 ? Math.ceil(product.price * (1 - roundedDiscount / 100)) : product.price;
+          const discountedPrice = product.stock <= 50 ? Math.floor(product.price * (1 - roundedDiscount / 100)) : product.price;
+          const discountApplied = product.stock <= 50;
           return (
             <div
-              className='bg-white p-4 border-2 rounded-md m-2 mb-10 card'
+              className='bg-white p-4 border-2 rounded-md m-2 flex flex-col h-[18vw] relative  '
+              style={{ width: 'calc(25% - 1rem)' }}
               key={product.id}
             >
               <li>
@@ -25,17 +27,25 @@ function ProductList() {
                   <img
                     src={product.images[0]}
                     alt='product'
-                    className='w-[20vw] h-[15vw] border rounded'
+                    className='w-full object-contain h-48 rounded mb-4'
                   />
-                  <h2>{product.title}</h2>
+                  <h2 className='mt-10'>{product.title}</h2>
                 </Link>
-                <div className='flex gap-5'>
+                <div className='flex gap-5 '>
                   <div>
                     <p className='flex items-center gap-2'>${discountedPrice}</p>
                   </div>
                   {product.stock <= 50 && (
                     <div>
-                      <p className='flex items-center gap-2 line-through'>${product.price}</p>
+                      <p className='flex items-center gap-2 line-through text-red-600'>${product.price}</p>
+                    </div>
+                  )}
+                  {discountApplied && (
+                    <div>
+                      <p className='absolute top-5 right-5 flex items-center text-2xl font-bold text-red-600'>
+                        <CiDiscount1 />
+                        {roundedDiscount}%
+                      </p>
                     </div>
                   )}
                   <div>
@@ -44,19 +54,13 @@ function ProductList() {
                       {product.rating}
                     </p>
                   </div>
-                  <div>
+                  {/* <div>
                     <p className='flex items-center gap-2'>{product.stock}</p>
-                  </div>
-                  <div>
-                    <p className='flex items-center gap-2'>
-                      <CiDiscount1 />
-                      {roundedDiscount}%
-                    </p>
-                  </div>
+                  </div> */}
                 </div>
 
                 <button
-                  className=' flex justify-center items-center border border-gray-800 rounded p-4 w-30 h-10 mt-10'
+                  className='flex justify-center items-center border border-gray-800 rounded p-4 w-full h-10 mt-20 '
                   onClick={() => addToCart(product.id)}
                 >
                   Add to Cart{ItemsInCart > 0 && ` (${ItemsInCart})`}
