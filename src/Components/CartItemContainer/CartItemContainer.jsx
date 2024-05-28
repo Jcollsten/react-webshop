@@ -3,7 +3,7 @@ import CartItem from "../CartItem/cartItem";
 
 export default function CartItemContainer({ cartProducts, cartItems }) {
   return (
-    <div className="flex justify-center items-center flex-col ">
+    <div className="flex justify-center items-center flex-col">
       {cartProducts.map((product) => (
         <CartItem
           key={product.id}

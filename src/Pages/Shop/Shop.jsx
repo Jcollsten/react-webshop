@@ -1,15 +1,15 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import ProductList from '../../Components/ProductList/ProductList';
-import Navbar from '../../Components/Navbar/Navbar';
-import CategoryFilter from '../../Components/CategoryFilter/CategoryFilter';
+import React from "react";
+import { Link } from "react-router-dom";
+import ProductList from "../../Components/ProductList/ProductList";
+import Navbar from "../../Components/Navbar/Navbar";
+import CategoryFilter from "../../Components/CategoryFilter/CategoryFilter";
 
 function Shop() {
   return (
-    <div className='bg-gray-100 pb-20'>
+    <div className="bg-gray-100 pb-20">
       <div>
         <h2>SHOP</h2>
-        <div className='flex justify-center ]'>
+        <div className="flex justify-center pt-4">
           <CategoryFilter />
         </div>
 
