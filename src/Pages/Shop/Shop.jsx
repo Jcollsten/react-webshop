@@ -1,8 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import ProductList from "../../Components/ProductList/ProductList";
-import Navbar from "../../Components/Navbar/Navbar";
-import CategoryFilter from "../../Components/CategoryFilter/CategoryFilter";
+import ProductList from "./ProductList";
+import CategoryFilter from "./CategoryFilter";
 
 function Shop() {
   return (
