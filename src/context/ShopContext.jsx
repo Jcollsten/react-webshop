@@ -7,6 +7,8 @@ export const ShopContextProvider = (props) => {
   const [products, setProducts] = useState([]);
   const [customerInfo, setCustomerInfo] = useState(null);
   const [category, setCategory] = useState('');
+  const cartProducts = products.filter((product) => cartItems[product.id] > 0);
+
   // 'https://dummyjson.com/products'
   // https://dummyjson.com/products/category/smartphones'
 
@@ -55,6 +57,7 @@ export const ShopContextProvider = (props) => {
     customerInfo,
     setCustomerInfo,
     setCategory,
+    cartProducts,
   };
 
   console.log(cartItems);
