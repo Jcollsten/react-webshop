@@ -12,7 +12,7 @@ import ProductPage from "./Pages/Shop/ProductPage";
 const App = () => {
   return (
     <ShopContextProvider>
-      <Router basename="'/react-webshop">
+      <Router basename="/react-webshop">
         <div className="flex flex-col min-h-screen bg-gray-200">
           <Navbar />
           <div className="flex-grow overflow-hidden">
