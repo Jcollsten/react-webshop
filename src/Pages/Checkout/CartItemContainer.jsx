@@ -1,5 +1,5 @@
 import React from "react";
-import CartItem from "../CartItem/cartItem";
+import CartItem from "../../Components/CartItem/cartItem";
 
 export default function CartItemContainer({ cartProducts, cartItems }) {
   return (

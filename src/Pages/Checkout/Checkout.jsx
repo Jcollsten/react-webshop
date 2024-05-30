@@ -1,15 +1,16 @@
-import React, { useContext, useState } from 'react';
-import { ShopContext } from '../../context/ShopContext';
-
-import OrderSummary from '../../Components/OrderSummary/OrderSummary';
-import CustomerInformation from '../../Components/CustomerInformation/CustomerInformation';
-import CheckoutHeader from '../../Components/CheckoutHeader/CheckoutHeader';
-import CartItemContainer from '../../Components/CartItemContainer/CartItemContainer';
-import EmptyCart from '../../Components/EmptyCart/EmptyCart';
-import ReceiptModal from '../../Components/ReceiptModal/ReceiptModal';
+import React, { useContext, useState } from "react";
+import { ShopContext } from "../../context/ShopContext";
+import imageSrc2 from "../../Assets/heidi-fin-2TLREZi7BUg-unsplash.jpg";
+import OrderSummary from "./OrderSummary";
+import CustomerInformation from "./CustomerInformation";
+import CheckoutHeader from "./CheckoutHeader";
+import CartItemContainer from "./CartItemContainer";
+import EmptyCart from "./EmptyCart";
+import ReceiptModal from "./ReceiptModal";
 
 export default function Checkout() {
-  const { products, cartItems, setCustomerInfo, customerInfo, cartProducts } = useContext(ShopContext);
+  const { cartItems, setCustomerInfo, customerInfo, cartProducts } =
+    useContext(ShopContext);
 
   // sort and filter on products that currently are in the cart based on ID - and move into variable "cartProducts"
 
@@ -19,37 +20,39 @@ export default function Checkout() {
     setIsModalOpen(true);
   };
 
-  // const handleOnClose(){
-  //   setIsModalOpen(false);
-  //   " />
-  // }
-
   return (
-    <div className='pb-20 bg-gray-100'>
-      <CheckoutHeader />
-      {cartProducts.length === 0 ? (
-        <EmptyCart />
-      ) : (
-        <div className='pb-20 bg-gray-100'>
-          <CartItemContainer
-            cartItems={cartItems}
-            cartProducts={cartProducts}
-          />
-          <OrderSummary
-            cartProducts={cartProducts}
-            cartItems={cartItems}
-          />
-          <CustomerInformation onPlaceOrder={handlePlaceOrder} />
-        </div>
-      )}
+    <div
+      style={{
+        backgroundImage: `url(${imageSrc2})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        height: "",
+        overflow: "hidden",
+      }}
+    >
+      <div className="pb-20 bg-opacity-90 bg-white w-[80%] mx-auto  ">
+        <CheckoutHeader />
+        {cartProducts.length === 0 ? (
+          <EmptyCart />
+        ) : (
+          <div className="pb-20 ">
+            <CartItemContainer
+              cartItems={cartItems}
+              cartProducts={cartProducts}
+            />
+            <OrderSummary cartProducts={cartProducts} cartItems={cartItems} />
+            <CustomerInformation onPlaceOrder={handlePlaceOrder} />
+          </div>
+        )}
 
-      <ReceiptModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        cartProducts={cartProducts}
-        customerInfo={customerInfo}
-        cartItems={cartItems}
-      />
+        <ReceiptModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          cartProducts={cartProducts}
+          customerInfo={customerInfo}
+          cartItems={cartItems}
+        />
+      </div>
     </div>
   );
 }
