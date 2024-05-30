@@ -1,16 +1,18 @@
 {
   "files": {
-    "main.css": "/react-webshop/static/css/main.cc7b41be.css",
-    "main.js": "/react-webshop/static/js/main.bfa3c4a3.js",
+    "main.css": "/react-webshop/static/css/main.329f77ec.css",
+    "main.js": "/react-webshop/static/js/main.509329fe.js",
     "static/js/453.17d1a598.chunk.js": "/react-webshop/static/js/453.17d1a598.chunk.js",
+    "static/media/heidi-fin-2TLREZi7BUg-unsplash.jpg": "/react-webshop/static/media/heidi-fin-2TLREZi7BUg-unsplash.0766809afd2123632fec.jpg",
+    "static/media/shopImage.jpg": "/react-webshop/static/media/shopImage.94330285bd04776a0421.jpg",
     "static/media/heroImage.jpg": "/react-webshop/static/media/heroImage.75e4975b7cef83d005a4.jpg",
     "index.html": "/react-webshop/index.html",
-    "main.cc7b41be.css.map": "/react-webshop/static/css/main.cc7b41be.css.map",
-    "main.bfa3c4a3.js.map": "/react-webshop/static/js/main.bfa3c4a3.js.map",
+    "main.329f77ec.css.map": "/react-webshop/static/css/main.329f77ec.css.map",
+    "main.509329fe.js.map": "/react-webshop/static/js/main.509329fe.js.map",
     "453.17d1a598.chunk.js.map": "/react-webshop/static/js/453.17d1a598.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.cc7b41be.css",
-    "static/js/main.bfa3c4a3.js"
+    "static/css/main.329f77ec.css",
+    "static/js/main.509329fe.js"
   ]
 }
