@@ -58,9 +58,7 @@ function Navbar() {
             <li className="hover:text-gray-300">
               <Link to="/About">About</Link>
             </li>
-            <li className="hover:text-gray-300">
-              <Link to="/Faq">FAQ</Link>
-            </li>
+
             <li className="hover:text-gray-300">
               <Link to="/Checkout">Checkout</Link>
             </li>
