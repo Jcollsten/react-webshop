@@ -4,13 +4,11 @@ import React, { createContext, useState, useEffect } from "react";
 export const ShopContext = createContext(null);
 
 export const ShopContextProvider = (props) => {
-  // cartItems holds the quantity of items by their product ID
-  const [cartItems, setCartItems] = useState({});
-  // LOCALSTORAGE SETUP
-  // const [cartItems, setCartItems] = useState(() => {
-  //   const savedCart = localStorage.getItem('cartItems');
-  //   return savedCart ? JSON.parse(savedCart) : {};
-  // });
+  // cartItems holds the quantity of items by their product ID, also accesses those values from LocalStorage if there is values
+  const [cartItems, setCartItems] = useState(() => {
+    const savedCart = localStorage.getItem("cartItems");
+    return savedCart ? JSON.parse(savedCart) : {};
+  });
 
   // Setting up state that holds the list of products from my fetch.
   const [products, setProducts] = useState([]);
@@ -39,11 +37,11 @@ export const ShopContextProvider = (props) => {
       });
   }, [category]);
 
-  // LOCALSTORAGE SETUP
-  // useEffect(() => {
-  //   localStorage.setItem('cartItems', JSON.stringify(cartItems));
-  //   localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
-  // }, [cartItems, cartProducts]);
+  // Saving these values in localStorage
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
+  }, [cartItems, cartProducts]);
 
   // Adding product/quantity by creating a new abject based on previous item in stae and then adding 1 to the quantity of that product
   function addToCart(itemId) {
