@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+// A basic Footer just containg some links.
+
 export default function Footer() {
   return (
     <footer className="bg-gradient-to-b from-gray-800 via-gray-700 to-gray-600 text-white py-4">
@@ -14,12 +16,6 @@ export default function Footer() {
         <Link to="/about" className="hover:text-gray-300">
           About
         </Link>
-        {/* <Link
-          to='/faq'
-          className='hover:text-gray-300'
-        >
-          FAQ
-        </Link> */}
       </div>
       <p className="text-center mt-4">© 2024 NJSC. All rights reserved.</p>
     </footer>

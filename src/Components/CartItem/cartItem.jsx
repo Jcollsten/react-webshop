@@ -6,11 +6,16 @@ import { CiCirclePlus } from "react-icons/ci";
 import { CiCircleMinus } from "react-icons/ci";
 import { CiTrash } from "react-icons/ci";
 
+// The CartItem component is a big component in this project that fill alot of functions. First of all its the product card in the productlist
+// and holds the design of those cards. I does a calc based on available stock, and just for the sake use using the discount, i made it so that if the
+// stock is less than 50, the discount applies. Its just a mock to use that value.
 export default function CartItem({ product, quantity }) {
   const { removeFromCart, addToCart, deleteFromCart, discountedPrice } =
     useContext(ShopContext);
   const discPrice = discountedPrice(product);
 
+  // Above ive imported what i need to access from my context, and also created a variable that will gold the discounted price for the product.(see context)
+  // Bwlow is mainly tailwind for designing how the item should look visually. At the end i refer to the add and reove functions to be able to adjust the amount of the product (see context)
   return (
     <div className="flex justify-center flex-col items-center flex-wrap gap-5 mt-7 p-4 shadow-md rounded w-[90%] sm:flex-row  sm:w-[80%] md:w-[70%] lg:w-[60%] lg:h-[15vw] bg-gray-200 border-l-4 border-gray-700  ">
       <div className="flex justify-center items-center w-1/4 ">

@@ -1,6 +1,8 @@
 import React from "react";
 import { TbTruckDelivery } from "react-icons/tb";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { ShopContext } from "../../context/ShopContext";
 
 export default function ReceiptModal({
   isOpen,
@@ -9,19 +11,11 @@ export default function ReceiptModal({
   customerInfo,
   cartItems,
 }) {
-  if (!isOpen) return null;
+  // calls the calculateCartTotal (see context) and assigns that value to totalCost
 
-  const totalPrice = cartProducts.reduce((sum, product) => {
-    return (
-      sum +
-      (product.stock <= 50
-        ? Math.floor(
-            product.price * (1 - Math.ceil(product.discountPercentage) / 100)
-          )
-        : product.price) *
-        cartItems[product.id]
-    );
-  }, 0);
+  const { calculateCartTotal } = useContext(ShopContext);
+  const totalCost = calculateCartTotal();
+  if (!isOpen) return null; // return null if modal is not open
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 backdrop-filter backdrop-blur-md">
@@ -47,6 +41,7 @@ export default function ReceiptModal({
 
         <div className="flex flex-col w-full md:w-[70%]">
           {cartProducts.map((product) => (
+            // looping the cartProducts to display each product
             <div
               key={product.id}
               className="flex justify-between text-center mt-2"
@@ -70,7 +65,7 @@ export default function ReceiptModal({
         <div className="flex justify-end w-full md:w-[70%] font-semibold">
           <div className="flex text-l gap-4">
             <div>Total cost: </div>
-            <div className="mb-5 mr-5">${Number(totalPrice).toFixed(2)}</div>
+            <div className="mb-5 mr-5">${Number(totalCost).toFixed(2)}</div>
           </div>
         </div>
 

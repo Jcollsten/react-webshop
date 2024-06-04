@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+// Just a simple component that shows while the checkout/cart is empty
 export default function EmptyCart() {
   return (
     <div className="h-[60vh] pb-20 flex justify-center items-center flex-col">

@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { IoBagOutline } from "react-icons/io5";
-
 import { CiMenuBurger } from "react-icons/ci";
 import { useContext } from "react";
 import { ShopContext } from "../../context/ShopContext";
+
+// a responsve navigation that hold some state information about the value of items in cart.
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,9 +37,11 @@ function Navbar() {
           <Link to="/checkout">
             <p className="px-1 py-1 text-xl text-white rounded hover:text-gray-300">
               Checkout {totalCost !== "0.00" ? `$${totalCost}` : ""}
-            </p>
+            </p>{" "}
+            {/* hide the value if value is 0 and show it when above */}
           </Link>
         </div>
+        {/* Start of the hamburger menu */}
         <div className="md:hidden">
           <button onClick={() => setIsOpen(!isOpen)} className="">
             <CiMenuBurger />

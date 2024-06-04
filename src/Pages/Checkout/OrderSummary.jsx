@@ -2,7 +2,8 @@ import React from "react";
 import { useContext } from "react";
 import { ShopContext } from "../../context/ShopContext";
 
-export default function OrderSummary({ cartProducts, cartItems, product }) {
+export default function OrderSummary({ cartProducts, cartItems }) {
+  // calls the calculateCartTotal (see context) and assigns that value to totalCost
   const { calculateCartTotal } = useContext(ShopContext);
   const totalCost = calculateCartTotal();
 
@@ -20,6 +21,7 @@ export default function OrderSummary({ cartProducts, cartItems, product }) {
           <div className="w-[33%] font-semibold">Quantity</div>
           <div className="w-[33%] font-semibold">Price</div>
         </div>
+
         {cartProducts.map((product) => (
           <div
             key={product.id}
