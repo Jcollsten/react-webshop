@@ -16,7 +16,6 @@ export default function ProductPage() {
   return (
     <div className='py-20 bg-gray-200 '>
       <div className='flex flex-col items-center justify-center max-w-2xl p-10 mx-auto bg-white rounded-md shadow-md md:flex-row'>
-        {/* <div className='flex'> */}
         <div className='md:w-1/2'>
           <img
             src={product.images[0]}
@@ -30,12 +29,7 @@ export default function ProductPage() {
           <p>{product.description}</p>
           <h2 className='mt-2 mb-2 text-xl font-semibold'> ${discPrice}</h2>
           <div className='flex items-center justify-center gap-4 mt-8'>
-            {/* <button
-              className="flex items-center justify-center w-full h-10 border border-gray-800 rounded md:w-2/5"
-              onClick={() => addToCart(product.id)}
-            >
-              Add to Cart
-            </button> */}
+            
             <div className='flex content-center justify-center gap-2 px-12'>
               <button onClick={() => removeFromCart(product.id)}>
                 <CiCircleMinus className='text-2xl hover:scale-110' />
@@ -50,7 +44,6 @@ export default function ProductPage() {
             </div>
           </div>
         </div>
-        {/* </div> */}
       </div>
     </div>
   );
